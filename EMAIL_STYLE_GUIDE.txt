@@ -1,0 +1,442 @@
+NORD RESEARCH BRIEF — EMAIL VISUAL STYLE GUIDE
+Version 1.0, September 2026
+
+PURPOSE
+
+This is the house style for compact research-digest emails: calm, technical,
+selective, and easy to scan before the reader is fully awake. It should feel
+like a carefully edited lab brief, not a newsletter, dashboard, marketing
+email, or social feed. The visual language is Nord-inspired: cool neutrals,
+deep blue-black text, restrained Frost-blue emphasis, and sparse Aurora colors
+used only to communicate priority.
+
+The email should look polished on a Mac and completely natural on an iPhone.
+It uses whitespace and typography to create hierarchy; decoration stays quiet.
+There are no hero images, gradients, drop shadows, badges everywhere, novelty
+fonts, or ornamental icons. The papers are the visual content.
+
+
+DESIGN PRINCIPLES
+
+1. Editorial, not promotional. Lead with the date, queue size, and the papers.
+   Never add slogans, engagement prompts, banners, or oversized branding.
+
+2. High information density without visual pressure. Every card contains real
+   metadata, one compact relevance rationale, a 3–4 sentence summary, and three
+   links, but generous line height and consistent spacing keep it readable.
+
+3. Priority must be visible without relying on color alone. Each section has a
+   written label, a count, and a colored left rail. “Less urgent” is clearly
+   separated from “Read first”; it never masquerades as an equally strong pick.
+
+4. Nord is the source palette, not a theme gimmick. Cool grays and blue-black
+   ink dominate. Frost blue is the normal accent. Aurora purple and orange are
+   reserved for revisions and lower urgency. Saturated color never fills a
+   large area.
+
+5. Email constraints are part of the aesthetic. The design should remain
+   elegant with table layout, inline CSS, system fonts, and no external assets.
+
+
+VISUAL PERSONALITY
+
+Keywords: quiet, rigorous, wintry, lucid, bookish, modern, trustworthy,
+technical, restrained, slightly academic.
+
+Avoid: glossy, playful, gamified, corporate, newspaper-like, cyberpunk,
+terminal-themed, maximalist, card-grid dashboard, or AI-generated-looking.
+
+The target impression is “a very good research assistant prepared this before
+breakfast.”
+
+
+COLOR SYSTEM
+
+The implementation uses email-safe, contrast-adjusted descendants of Nord.
+For another email product, reuse these exact tokens so the family resemblance
+is immediate. Canonical Nord values are included only as provenance.
+
+Core surfaces and ink
+
+  Canvas / page background       #F3F5F7
+    Nord source: Snow Storm #ECEFF4
+    Use behind the centered email shell. It should be visibly cool gray, never
+    beige and never pure white.
+
+  Main shell and card surface    #FFFFFF
+    White is retained for maximum email-client consistency and clean contrast.
+
+  Primary ink                    #172033
+    Nord source: Polar Night #2E3440
+    Use for the main title, paper titles, strong labels, and the primary button.
+
+  Body ink                       #263247
+    Nord source: Polar Night #3B4252
+    Use for summaries, relevance text, and secondary-button text.
+
+  Secondary ink                  #4F596B
+    Nord source: Polar Night #434C5E / #4C566A
+    Use for author names.
+
+  Muted ink                      #687386
+    Use for counts, metadata, subtitles, and footer explanation.
+
+  Faint ink                      #8992A3
+    Use only for acknowledgements or truly tertiary footer copy.
+
+  Standard border                #DFE3E8
+  Footer divider                 #E5E8ED
+  Button border                  #C9D0DA
+  Neutral information surface   #F1F4F8
+
+Priority colors
+
+  Read first accent              #1769AA
+    Nord source: Frost #5E81AC
+  Read first rationale tint      #EDF6FC
+
+  Important revision accent      #6D4AFF
+    Nord source: Aurora purple #B48EAD
+  Important revision tint        #F2EFFF
+
+  Less urgent accent             #A15C00
+    Nord source: Aurora orange #D08770
+  Less urgent rationale tint     #FFF5E7
+
+  Source/catch-up notice text    #70410A
+  Source/catch-up notice label   #5B3305
+  Source/catch-up notice surface #FFF5E7
+
+Optional colors for future clients
+
+  Success / completed            #A3BE8C  (Nord Aurora green)
+  Destructive / failed           #BF616A  (Nord Aurora red)
+  Caution                        #EBCB8B  (Nord Aurora yellow)
+
+Rules for color
+
+  - Use blue as the default interactive and high-priority accent.
+  - Use purple only for materially revised papers.
+  - Use orange only for “Less urgent” items and actionable source warnings.
+  - Never color a full paper card. Keep the card white and apply color through
+    a 5 px left rail, a small uppercase label, and a pale rationale inset.
+  - Never use red or green as general decoration.
+  - Do not introduce a second blue, orange, or purple without replacing the
+    corresponding token everywhere.
+
+
+PAGE AND CONTAINER GEOMETRY
+
+The message is one centered column on a cool-gray canvas.
+
+  Maximum shell width            640 px
+  Shell width                    100% up to the maximum
+  Desktop outer padding          28 px vertical, 14 px horizontal
+  Shell background               white
+  Shell border                   1 px solid #DFE3E8
+  Shell corner radius            14 px
+  Main desktop content padding   30 px top, 31 px sides, 13 px bottom
+  Footer desktop padding         17 px top, 31 px sides, 28 px bottom
+
+Do not use a two-column layout. Do not add a persistent sidebar, table of
+contents, or navigation bar. Long messages remain easy to scan because every
+paper repeats the same card grammar.
+
+
+TYPOGRAPHY
+
+Font stack
+
+  Arial, Helvetica, sans-serif
+
+This deliberately uses system-safe sans serif rather than a webfont. The email
+must render consistently in Gmail, Apple Mail, and browser previews without a
+font download. Do not use a monospace font for metadata; that would make the
+message feel like a log rather than an editorial brief.
+
+Type hierarchy
+
+  Masthead eyebrow               12 px / 18 px, weight 700,
+                                 letter-spacing 0.09 em, uppercase, blue
+
+  Main heading                   29 px / 36 px, weight 700, primary ink
+
+  Header count line              14 px / 21 px, regular, muted ink
+
+  Section heading                17 px / 23 px, weight 700, primary ink
+
+  Section subtitle               13 px / 19 px, regular, muted ink
+
+  Section count                  12 px / 18 px, weight 700, section accent
+
+  Card priority label            11 px / 15 px, weight 700,
+                                 letter-spacing 0.08 em, uppercase
+
+  Paper title                    20 px / 27 px, weight 700, primary ink
+
+  Authors                        14 px / 21 px, regular, secondary ink
+
+  Version/category/date          12 px / 18 px, regular, muted ink
+
+  Why-it-matches line            14 px / 21 px, body ink;
+                                 the label itself is weight 700, primary ink
+
+  Technical summary              15 px / 24 px, regular, body ink
+
+  Link buttons                   13 px / 18 px, weight 700
+
+  Footer heading                 13 px / 20 px, weight 700, primary ink
+  Footer body                    13 px / 20 px, regular, muted ink
+  Footer acknowledgement        11 px / 17 px, regular, faint ink
+
+Use sentence case for headings except the small masthead and card-priority
+labels. Do not italicize abstracts, author names, or metadata. Do not truncate
+paper titles; allow natural wrapping with overflow-wrap enabled.
+
+
+MESSAGE HIERARCHY
+
+The message always follows this order:
+
+  Hidden inbox preheader
+  -> masthead eyebrow with product name and date
+  -> “Today’s papers” title
+  -> screened and selected counts
+  -> optional monthly-focus panel
+  -> optional source/catch-up notice
+  -> optional Important revisions section
+  -> Read first section
+  -> optional Less urgent section
+  -> compact feedback footer
+  -> arXiv acknowledgement
+
+The first visible screen should answer three questions immediately: what this
+is, how many papers survived screening, and what the active research focus is.
+
+
+MASTHEAD AND CONTEXT PANELS
+
+The masthead is intentionally small. “ARXIV BRIEF · DATE” is a blue uppercase
+eyebrow, followed by the much larger “Today’s papers.” The screened/selected
+line sits beneath in muted gray. There is no logo.
+
+Monthly focus panel
+
+  Background                     #F1F4F8
+  Radius                         9 px
+  Margin                         17 px top, 4 px bottom
+  Padding                        12 px vertical, 14 px horizontal
+  Copy                           13 px / 20 px
+
+It begins with a bold “This month:” label and one plain-language sentence. It
+should read as context, not an alert.
+
+Source/catch-up notice
+
+  Background                     #FFF5E7
+  Radius                         9 px
+  Margin                         12 px top, 4 px bottom
+  Padding                        12 px vertical, 14 px horizontal
+  Copy                           13 px / 20 px, dark amber
+
+Use this only when source completeness, cached personalization, or another
+run-level condition materially affects interpretation. Routine success does
+not receive a green banner.
+
+
+SECTION HEADERS
+
+Each section header has a title and one-line explanation on the left, with the
+paper count aligned right in the section accent. The block has 25 px of top
+margin and 11 px of bottom margin. Keep the title descriptive and calm:
+
+  Important revisions
+  “Previously seen papers with a material update worth reopening.”
+
+  Read first
+  “The strongest matches for your active research interests.”
+
+  Less urgent
+  “Relevant and worth saving, but lower priority for today.”
+
+Never rename “Less urgent” to “Recommended,” because the explicit difference
+in urgency is part of the product’s honesty.
+
+
+PAPER CARD ANATOMY
+
+Every paper uses one full-width white card.
+
+  Card border                    1 px solid #DFE3E8
+  Card radius                    12 px
+  Gap after card                 14 px
+  Priority rail                 5 px wide, section accent
+  Desktop inner padding         20 px top, 22 px sides, 19 px bottom
+
+The internal order is fixed:
+
+1. Index and priority label. Example: “1 · READ FIRST.” This is small,
+   uppercase, tracked text in the section accent.
+
+2. Full paper title. It is the strongest element inside the card.
+
+3. Authors. Show names as normal prose; do not turn every author into a chip.
+
+4. Metadata. Use “v1 · new · cond-mat.stat-mech · Wed, Sep 2, 2026.” Middle
+   dots provide quiet separation without adding boxes or columns.
+
+5. Why-it-matches inset. Use the section’s pale tint with an 8 px radius,
+   12 px vertical and 14 px horizontal padding, and 14 px bottom margin. The
+   rationale is exactly one concise sentence naming concrete methods, results,
+   or ideas. It is not a second summary.
+
+6. Technical summary. Use exactly 3–4 short sentences covering the problem,
+   method, principal result, and limitation or reason to care. Do not add a
+   heading such as “Summary”; the typography already establishes its role.
+
+7. Link row. Place Abstract, HTML, and PDF in that order.
+
+Do not display raw ranking scores, confidence values, keyword clouds, model
+names, or internal cluster IDs. Those are diagnostics, not reading decisions.
+
+
+BUTTONS AND LINKS
+
+Primary button: Abstract
+
+  Background                     #172033
+  Text                           #FFFFFF
+  Padding                        10 px vertical, 13 px horizontal
+  Radius                         7 px
+  Border                         none
+
+Secondary buttons: HTML and PDF
+
+  Background                     #FFFFFF
+  Text                           #263247
+  Border                         1 px solid #C9D0DA
+  Padding                        10 px vertical, 13 px horizontal
+  Radius                         7 px
+
+Use 8 px horizontal gaps. Buttons are compact text controls, not wide calls to
+action. Do not add icons; the three words are clearer and survive every client.
+All destinations must be absolute HTTPS links.
+
+
+SPACING RHYTHM
+
+The implicit base unit is 4 px. Preferred increments are 4, 8, 12, 16, 20,
+24, 28, and 32 px; the implementation uses nearby optical adjustments such as
+7, 9, 11, 13, 14, 17, 19, 22, 25, and 31 px where typography needs them.
+
+Within a card, related metadata is separated by 7–9 px, major content blocks
+by 14–16 px, and cards by 14 px. Between sections, use about 25 px. Resist the
+urge to compress the summary just because a digest is long; reduce the number
+of papers instead.
+
+
+MOBILE BEHAVIOR
+
+The breakpoint is 680 px. Below it:
+
+  Shell width                    100%
+  Outer padding                  14 px vertical, 10 px horizontal
+  Main/footer side padding       17 px
+  Card padding                   17 px vertical, 16 px horizontal
+  Paper title                    18 px / 25 px
+
+At a 390 px viewport, the shell should be 370 px wide with 10 px margins and
+zero horizontal overflow. Titles, authors, metadata, rationales, and summaries
+wrap naturally. The link row should remain compact enough to fit; if a future
+client adds longer action names, stack the buttons rather than shrinking text.
+
+Do not hide metadata or summaries on mobile. Mobile receives the same editorial
+content, with tighter padding and a slightly smaller paper title.
+
+
+EMAIL-CLIENT IMPLEMENTATION RULES
+
+  - Use presentation tables for macro layout and cards.
+  - Put critical styles inline; a small head style block may contain only the
+    responsive overrides and Apple data-detector correction.
+  - Include width=device-width and declare a light color scheme.
+  - Use no JavaScript, forms, iframes, objects, embeds, inputs, or images.
+  - Use no CSS grid or flexbox.
+  - Use no external fonts, stylesheets, trackers, or remote decorative assets.
+  - Keep the HTML below 90 KiB so Gmail does not clip it.
+  - Include a complete plain-text alternative with the same section order and
+    every Abstract, HTML, and PDF URL.
+  - Escape all paper titles, authors, abstracts, and generated rationale text.
+  - Use color-independent text labels for every priority state.
+
+
+ACCESSIBILITY
+
+Use semantic h1, h2, and h3 headings even inside presentation tables. Body copy
+should stay at 15 px / 24 px, with high-contrast blue-black text on white. Link
+labels must describe destinations directly. Priority is conveyed by section
+name, card label, and position as well as color. Never place essential meaning
+in a tooltip, hover effect, image, or colored dot.
+
+The three action buttons should remain comfortably tappable on a phone. Avoid
+gray text lighter than #8992A3, and reserve that faint tone for nonessential
+acknowledgement copy.
+
+
+COPY AND EDITORIAL TONE
+
+Visual consistency depends on verbal consistency. Use short, literal labels
+and technically specific prose.
+
+Preferred labels:
+
+  Today’s papers
+  This month:
+  Important revisions
+  Read first
+  Less urgent
+  Why it matches:
+  Abstract / HTML / PDF
+  Tune tomorrow’s ranking
+
+The relevance sentence names methods and results: “Uses zero-temperature
+replicas to derive large-deviation rate functions…” It never says only “This
+matches your interests.” Summaries avoid hype and distinguish a new result from
+an expository chapter, preliminary method, or adjacent application.
+
+No emojis, exclamation marks, fake urgency, or engagement language. Counts are
+factual. Empty sections disappear. Weak papers do not fill a quota.
+
+
+FOOTER
+
+Separate the footer from the paper queue with a 1 px #E5E8ED rule. The footer
+contains one compact heading, one explanation of how feedback affects future
+ranking, and a faint arXiv acknowledgement. It should feel like the endnote of
+a memo, not a second navigation area.
+
+Do not add social links, legal boilerplate, promotional copy, or a large logo.
+
+
+CONSISTENCY CHECKLIST FOR A NEW EMAIL CLIENT
+
+  [ ] Cool-gray canvas, white 640 px shell, thin cool-gray border.
+  [ ] Arial/Helvetica system typography with the hierarchy above.
+  [ ] Small blue masthead, strong left-aligned title, visible queue counts.
+  [ ] Optional neutral monthly-focus panel and amber run notice.
+  [ ] One vertical reading flow; no dashboard grid.
+  [ ] White paper cards with a 5 px priority rail.
+  [ ] Read-first blue, revision purple, less-urgent orange.
+  [ ] One-sentence why-it-matches inset plus a 3–4 sentence summary.
+  [ ] Dark Abstract button; outlined HTML and PDF buttons.
+  [ ] No scores, chips, thumbnails, gradients, shadows, or decorative icons.
+  [ ] 390 px mobile layout has no horizontal overflow.
+  [ ] HTML remains below 90 KiB and includes a full plain-text alternative.
+  [ ] The result feels like an edited research memo rather than a newsletter.
+
+
+ONE-SENTENCE ART DIRECTION
+
+A quiet Nord-inspired research memo: deep Polar-Night typography on white and
+Snow-Storm surfaces, Frost-blue priority cues, restrained Aurora exceptions,
+and enough whitespace that dense technical summaries remain calm on a phone.

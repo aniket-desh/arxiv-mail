@@ -1,0 +1,68 @@
+name: Weekday arXiv digest
+
+on:
+  workflow_dispatch:
+    inputs:
+      deliver:
+        description: Actually reserve and send this digest
+        required: true
+        type: boolean
+        default: false
+  schedule:
+    - cron: "7 7 * * 1-5"
+      timezone: "America/Chicago"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: arxivmail-daily
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    if: >-
+      (github.event_name == 'schedule' && vars.ARXIVMAIL_ENABLED == 'true') ||
+      (github.event_name == 'workflow_dispatch' && inputs.deliver)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the private repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Restore private delivery state
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: ./scripts/restore-state.sh state/state.json
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Rank and reserve the digest
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ZOTERO_API_KEY: ${{ secrets.ZOTERO_API_KEY }}
+        run: python -m arxivmail --state state/state.json --output output generate --reserve
+
+      - name: Persist the reservation before SMTP
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: ./scripts/publish-state.sh state/state.json
+
+      - name: Deliver the reserved digest
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python -m arxivmail --state state/state.json --output output deliver
+
+      - name: Persist the delivery receipt
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: ./scripts/publish-state.sh state/state.json

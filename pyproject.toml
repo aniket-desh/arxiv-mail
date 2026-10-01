@@ -1,0 +1,11 @@
+[project]
+name = "arxivmail"
+version = "0.1.0"
+description = "A thresholded, personalized arXiv reading digest"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+

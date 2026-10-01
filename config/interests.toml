@@ -1,0 +1,773 @@
+# Human-editable research profile for the arXiv digest.
+#
+# Cluster weights are permanent preferences on a 0.0-1.0 scale. Monthly focus
+# entries temporarily multiply the relevant cluster and phrase evidence. The
+# vocabulary is intentionally broad: it is used for retrieval and as evidence
+# for semantic ranking, never as a hard keyword gate.
+
+[profile]
+name = "Aniket"
+version = 1
+permanent_center = [
+  "statistical physics of learning",
+  "disordered systems",
+  "theoretical neuroscience and associative memory",
+]
+ranking_principle = "Judge substantive methods and results from the abstract; titles, categories, authors, and phrases are supporting evidence rather than gates."
+
+[models]
+ranker = "gpt-5.6-luna"
+ranker_reasoning_effort = "low"
+embedding = "text-embedding-3-small"
+summary_sentences_min = 3
+summary_sentences_max = 4
+
+[delivery]
+recipient = "aniketdeshh@gmail.com"
+sender = "aniketdeshh@gmail.com"
+timezone = "America/Chicago"
+hour = 7
+minute = 7
+weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"]
+max_total = 15
+max_less_urgent = 3
+send_on_empty = false
+
+[retrieval]
+lookback_hours = 72
+max_results = 2000
+llm_limit = 48
+rank_batch_size = 24
+include_revisions = true
+categories = [
+  "cs.LG",
+  "stat.ML",
+  "cs.AI",
+  "cs.CL",
+  "quant-ph",
+  "cond-mat.stat-mech",
+  "cond-mat.dis-nn",
+  "cond-mat.str-el",
+  "cond-mat.quant-gas",
+  "physics.comp-ph",
+  "physics.chem-ph",
+  "physics.bio-ph",
+  "math.NA",
+  "cs.NA",
+  "math-ph",
+  "cs.IT",
+  "math.IT",
+  "q-bio.NC",
+  "nlin.AO",
+  "nlin.CD",
+]
+
+[selection]
+must_read_min_score = 0.78
+less_urgent_min_score = 0.45
+minimum_confidence = 0.45
+pad_to_target = false
+deduplicate_by_base_arxiv_id = true
+material_revision_min_score = 0.72
+max_per_cluster_before_diversity_penalty = 5
+
+[ranking]
+semantic_weight = 0.48
+taxonomy_weight = 0.18
+monthly_focus_weight = 0.16
+zotero_weight = 0.08
+title_phrase_multiplier = 1.20
+abstract_phrase_multiplier = 1.00
+legacy_numerical_linear_algebra_multiplier = 0.30
+classify_fit_as = ["physics_of_learning", "physics_inspired_ml", "ml_for_physics", "other"]
+
+[quantum_direction]
+promote = [
+  "quantum many-body theory",
+  "many-body simulation",
+  "electronic structure",
+  "strongly correlated systems",
+  "tensor-network quantum states",
+  "DMRG",
+  "PEPS",
+  "fermionic tensor networks",
+  "machine learning for many-body physics",
+]
+downweight = [
+  "generic randomized numerical linear algebra",
+  "generic matrix sketching",
+  "generic randomized SVD",
+]
+bridge_exceptions = [
+  "tensor-network contraction",
+  "tensor eigensolver",
+  "DMRG eigensolver",
+  "many-body simulation",
+  "electronic-structure solver",
+]
+
+[bridges]
+queries = [
+  "statistical mechanics + neural network",
+  "replica method + learning",
+  "cavity method + data attribution",
+  "spin glass + transformer",
+  "Potts model + attention",
+  "singular learning theory + tensor network",
+  "local learning coefficient + interpretability",
+  "tensor network + transformer",
+  "tensor decomposition + mechanistic interpretability",
+  "information geometry + representation learning",
+  "quantum geometric tensor + MPS",
+  "classical shadows + quantum chemistry",
+  "randomized algorithms + tensor network",
+  "MCMC + tensor contraction",
+  "Glauber dynamics + partition function",
+  "deep linear network + saddle",
+  "representation geometry + transformer",
+  "associative memory + in-context learning",
+  "recurrent transformer + latent reasoning",
+  "feature learning + phase transition",
+]
+
+[[clusters]]
+id = "statistical_physics_of_learning"
+name = "Statistical physics of learning"
+role = "core"
+weight = 1.00
+phrases = [
+  "statistical mechanics of learning",
+  "physics of deep learning",
+  "learning phase transition",
+  "neural network statistical mechanics",
+  "high-dimensional inference",
+  "teacher-student model",
+  "solvable model of learning",
+  "mean-field theory of neural networks",
+  "dynamical mean-field theory",
+  "non-equilibrium learning dynamics",
+  "feature-learning transition",
+  "generalization transition",
+  "spin glass",
+  "Sherrington-Kirkpatrick model",
+  "p-spin model",
+  "Potts model",
+  "Hopfield model",
+  "associative memory",
+  "perceptron capacity",
+  "storage capacity",
+  "Gardner calculation",
+  "replica method",
+  "replica symmetry breaking",
+  "cavity method",
+  "TAP equations",
+  "Franz-Parisi potential",
+  "Nishimori line",
+  "quenched disorder",
+  "annealed approximation",
+  "free-energy landscape",
+  "configurational entropy",
+  "complexity of minima",
+  "jamming transition",
+  "random constraint-satisfaction problem",
+  "approximate message passing",
+  "belief propagation",
+  "Bayes-optimal inference",
+]
+
+[[clusters]]
+id = "deep_learning_theory"
+name = "Deep-learning theory and learning dynamics"
+role = "core_branch"
+weight = 0.90
+phrases = [
+  "feature learning",
+  "representation learning dynamics",
+  "rich regime",
+  "lazy training",
+  "neural tangent kernel",
+  "mean-field neural network",
+  "finite-width corrections",
+  "infinite-width neural networks",
+  "deep linear network",
+  "saddle-to-saddle dynamics",
+  "alternating gradient flow",
+  "multi-index model",
+  "bilinear neural network",
+  "polynomial neural network",
+  "tensor programs",
+  "maximal update parametrization",
+  "implicit bias",
+  "implicit regularization",
+  "gradient-flow dynamics",
+  "stochastic gradient descent theory",
+  "loss landscape",
+  "Hessian spectrum",
+  "loss curvature",
+  "mode connectivity",
+  "spectral bias",
+  "neural collapse",
+  "grokking",
+  "double descent",
+  "scaling laws",
+  "interpolation threshold",
+  "low-rank learning",
+  "representation universality",
+  "optimization phase transition",
+  "feature emergence",
+]
+
+[[clusters]]
+id = "singular_learning_theory"
+name = "Singular learning theory"
+role = "important_branch"
+weight = 0.75
+phrases = [
+  "singular learning theory",
+  "singular statistical model",
+  "real log canonical threshold",
+  "RLCT",
+  "local learning coefficient",
+  "learning coefficient",
+  "Watanabe information criterion",
+  "widely applicable Bayesian information criterion",
+  "WBIC",
+  "singular fluctuation",
+  "Bayesian free energy",
+  "algebraic geometry of neural networks",
+  "degeneracy of neural networks",
+  "developmental landscape",
+  "model degeneracy",
+  "singular neural network",
+  "SLT interpretability",
+  "SLT tensor network",
+  "phase transition local learning coefficient",
+]
+
+[[clusters]]
+id = "mechanistic_interpretability_alignment"
+name = "Mechanistic interpretability and alignment"
+role = "important_branch"
+weight = 0.85
+phrases = [
+  "mechanistic interpretability",
+  "sparse autoencoder",
+  "sparse dictionary learning",
+  "crosscoder",
+  "temporal crosscoder",
+  "transcoder",
+  "feature-resolved attention",
+  "feature interaction",
+  "superposition in neural networks",
+  "polysemanticity",
+  "monosemanticity",
+  "distributed representations",
+  "mechanistic anomaly detection",
+  "circuit discovery",
+  "circuit extraction",
+  "neural network circuits",
+  "computational graph recovery",
+  "causal tracing",
+  "activation patching",
+  "path patching",
+  "causal mediation analysis",
+  "attribution patching",
+  "logit lens",
+  "probing representations",
+  "activation steering",
+  "representation engineering",
+  "feature geometry",
+  "activation geometry",
+  "computational manifolds",
+  "weight-based interpretability",
+  "sparse parameter decomposition",
+  "parameter decomposition",
+  "knowledge localization",
+  "model editing",
+  "mechanistic evaluation",
+  "chain-of-thought faithfulness",
+  "latent reasoning",
+  "hidden reasoning",
+  "process supervision",
+  "scalable oversight",
+  "deceptive alignment",
+  "goal misgeneralization",
+  "mechanistic monitoring",
+  "interpretability for AI safety",
+  "emergent misalignment",
+  "sleeper agents",
+  "behavioral monitoring",
+]
+
+[[clusters]]
+id = "transformers_memory_reasoning"
+name = "Transformers, memory, and reasoning"
+role = "important_branch"
+weight = 0.85
+phrases = [
+  "transformer theory",
+  "theoretical analysis of transformers",
+  "attention dynamics",
+  "attention-only transformer",
+  "factored attention",
+  "self-attention theory",
+  "transformer circuits",
+  "transformer memory",
+  "associative memory transformer",
+  "modern Hopfield network",
+  "in-context learning theory",
+  "induction heads",
+  "recurrent transformer",
+  "looped transformer",
+  "iterative transformer",
+  "recurrent depth",
+  "adaptive computation",
+  "latent chain of thought",
+  "continuous thought",
+  "neural algorithmic reasoning",
+  "belief-state geometry",
+  "predictive state representation",
+  "causal states",
+  "computational mechanics transformers",
+  "contextual knowledge",
+  "parametric knowledge",
+  "representation dynamics",
+  "hidden-state dynamics",
+  "attention as a Potts model",
+  "statistical mechanics of attention",
+  "effective Hamiltonian of attention",
+  "many-body interactions in transformers",
+  "higher-order transformer interactions",
+]
+
+[[clusters]]
+id = "tensor_networks_algorithms"
+name = "Tensor networks and tensor algorithms"
+role = "active_quantum_branch"
+weight = 0.90
+phrases = [
+  "tensor network",
+  "tensor-network contraction",
+  "approximate tensor contraction",
+  "contraction complexity",
+  "contraction ordering",
+  "matrix product state",
+  "MPS",
+  "projected entangled-pair state",
+  "PEPS",
+  "isometric PEPS",
+  "isoPEPS",
+  "tree tensor network",
+  "TTN",
+  "MERA",
+  "matrix product operator",
+  "MPO",
+  "density matrix renormalization group",
+  "DMRG",
+  "time-evolving block decimation",
+  "TEBD",
+  "tensor renormalization group",
+  "boundary MPS",
+  "corner transfer matrix",
+  "bond compression",
+  "randomized bond compression",
+  "fermionic tensor network",
+  "symmetric tensor network",
+  "tensor eigensolver",
+  "tensor decomposition",
+  "tensor completion",
+  "tensor sketching",
+  "tensor PCA",
+  "low-rank tensor approximation",
+  "graphical tensor notation",
+  "tensor-network machine learning",
+  "tensorized neural network",
+  "tensorized transformer",
+  "transformer tensor network",
+  "neural network tensor decomposition",
+  "tensor network language model",
+  "tensor network generative model",
+  "Born machine",
+  "tensor network interpretability",
+  "tree tensor network learning",
+  "tensor networks and singular learning theory",
+]
+
+[[clusters]]
+id = "quantum_many_body_information"
+name = "Quantum many-body physics and quantum information"
+role = "active_quantum_branch"
+weight = 0.85
+phrases = [
+  "quantum many-body theory",
+  "strongly correlated systems",
+  "entanglement structure",
+  "entanglement spectrum",
+  "area law",
+  "tensor-network quantum states",
+  "variational quantum state",
+  "variational manifold",
+  "MPS manifold",
+  "quantum geometric tensor",
+  "quantum Fisher information",
+  "fidelity susceptibility",
+  "Fubini-Study metric",
+  "Bures metric",
+  "information geometry of quantum states",
+  "quantum state tomography",
+  "classical shadows",
+  "fermionic shadows",
+  "randomized measurements",
+  "shadow tomography",
+  "quantum state learning",
+  "quantum channel learning",
+  "open quantum systems",
+  "quantum thermodynamics",
+  "monitored quantum circuits",
+  "measurement-induced phase transition",
+  "entanglement phase transition",
+  "learnability transition",
+  "quantum error correction",
+  "tensor-network decoder",
+  "quantum circuit complexity",
+  "quantum circuit volume",
+  "random quantum circuits",
+  "Clifford circuits",
+  "unitary designs",
+  "frame potential",
+  "Weingarten calculus",
+  "quantum chaos",
+  "eigenstate thermalization",
+  "ETH",
+  "SYK model",
+  "many-body localization",
+  "operator spreading",
+  "topological phases",
+  "topological quantum matter",
+]
+
+[[clusters]]
+id = "quantum_chemistry_electronic_structure"
+name = "Quantum chemistry and electronic structure"
+role = "active_quantum_branch"
+weight = 0.75
+phrases = [
+  "quantum chemistry",
+  "electronic structure theory",
+  "strongly correlated electrons",
+  "many-body electronic structure",
+  "tensor networks in quantum chemistry",
+  "quantum chemistry DMRG",
+  "DMRG-SCF",
+  "DMRG-CASSCF",
+  "multireference methods",
+  "active-space methods",
+  "complete active space",
+  "coupled-cluster theory",
+  "tensor coupled cluster",
+  "reduced density matrix",
+  "two-particle reduced density matrix",
+  "2-RDM",
+  "N-representability",
+  "variational 2-RDM",
+  "Green's-function methods",
+  "electronic self-energy",
+  "finite-temperature many-body perturbation theory",
+  "quantum embedding",
+  "density matrix embedding theory",
+  "DMET",
+  "dynamical mean-field theory",
+  "quantum impurity model",
+  "impurity solver",
+  "particle addition and removal",
+  "spectral function",
+  "excited-state electronic structure",
+  "thermal electronic structure",
+  "fermionic simulation",
+  "quantum algorithms for chemistry",
+  "classical shadows for chemistry",
+  "molecular spectroscopy",
+  "molecular absorption spectra",
+  "time-resolved molecular observables",
+  "tensor hypercontraction",
+  "electron-repulsion integral compression",
+]
+
+[[clusters]]
+id = "randomized_numerical_linear_algebra"
+name = "Randomized numerical linear algebra"
+role = "legacy_low_priority"
+weight = 0.25
+phrases = [
+  "randomized numerical linear algebra",
+  "randomized linear algebra",
+  "randomized SVD",
+  "randomized eigensolver",
+  "low-rank approximation",
+  "matrix sketching",
+  "tensor sketch",
+  "subspace embedding",
+  "randomized subspace iteration",
+  "randomized range finder",
+  "block Krylov method",
+  "iterative eigensolver",
+  "Lanczos method",
+  "randomized Lanczos",
+  "stochastic Lanczos quadrature",
+  "trace estimation",
+  "Hutchinson estimator",
+  "Hutch++",
+  "Nystrom approximation",
+  "leverage-score sampling",
+  "matrix concentration",
+  "structured random projection",
+  "communication-avoiding algorithms",
+  "parallel tensor contraction",
+  "high-performance tensor algorithms",
+  "quantum-inspired algorithms",
+  "graph Laplacian solver",
+]
+
+[[clusters]]
+id = "sampling_partition_functions"
+name = "Monte Carlo, sampling, and partition functions"
+role = "adjacent_method"
+weight = 0.60
+phrases = [
+  "annealed importance sampling",
+  "sequential Monte Carlo",
+  "Markov chain Monte Carlo",
+  "MCMC",
+  "Glauber dynamics",
+  "Gibbs sampling",
+  "mixing time",
+  "rapid mixing",
+  "Markov-chain concentration",
+  "importance sampling",
+  "rare-event sampling",
+  "variance reduction",
+  "partition-function estimation",
+  "free-energy estimation",
+  "normalizing-constant estimation",
+  "stochastic trace estimation",
+  "Monte Carlo tensor contraction",
+  "MCMC tensor networks",
+  "sampling graphical models",
+  "spin-system sampling",
+  "tempering methods",
+  "simulated tempering",
+  "parallel tempering",
+  "perfect sampling",
+  "sign problem",
+]
+
+[[clusters]]
+id = "information_geometry_stochastic_dynamics"
+name = "Information geometry and stochastic dynamics"
+role = "adjacent_theory"
+weight = 0.65
+phrases = [
+  "information geometry",
+  "Fisher-Rao geometry",
+  "natural gradient",
+  "statistical manifold",
+  "neural network parameter manifold",
+  "representation manifold",
+  "manifold optimization",
+  "optimal transport",
+  "Wasserstein gradient flow",
+  "Schrodinger bridge",
+  "stochastic differential equation",
+  "stochastic partial differential equation",
+  "Fokker-Planck equation",
+  "large deviations",
+  "metastability",
+  "stochastic thermodynamics",
+  "path integral for neural networks",
+  "Martin-Siggia-Rose formalism",
+  "dynamical field theory",
+  "renormalization group neural networks",
+  "effective field theory of deep learning",
+  "moment closure",
+  "mean-field limit",
+  "interacting particle systems",
+]
+
+[[clusters]]
+id = "theoretical_neuroscience_memory"
+name = "Theoretical neuroscience and memory"
+role = "core"
+weight = 0.95
+phrases = [
+  "theoretical neuroscience",
+  "computational neuroscience",
+  "neural population dynamics",
+  "neural manifolds",
+  "attractor network",
+  "continuous attractor",
+  "associative memory",
+  "memory capacity",
+  "Hopfield network",
+  "hierarchical memory",
+  "working memory",
+  "neural field theory",
+  "low-rank recurrent neural network",
+  "RNN dynamical mean-field theory",
+  "Hebbian learning",
+  "synaptic plasticity",
+  "population coding",
+  "cognitive maps",
+  "representation geometry neuroscience",
+  "biologically plausible learning",
+  "equilibrium propagation",
+  "predictive coding",
+  "FitzHugh-Nagumo",
+  "stochastic neural dynamics",
+]
+
+[[clusters]]
+id = "generative_scientific_ml"
+name = "Generative models and scientific ML"
+role = "adjacent_application"
+weight = 0.55
+phrases = [
+  "diffusion model theory",
+  "score-based generative model",
+  "diffusion language model",
+  "discrete diffusion",
+  "flow matching",
+  "score matching",
+  "compositional diffusion models",
+  "factorization in generative models",
+  "energy-based model",
+  "generative-model generalization",
+  "neural operator",
+  "operator learning",
+  "Fourier neural operator",
+  "DeepONet",
+  "scientific machine learning",
+  "physics-informed machine learning",
+  "surrogate dynamical model",
+  "system identification",
+  "Koopman operator learning",
+]
+
+[[clusters]]
+id = "data_attribution_perturbative_analysis"
+name = "Data attribution and perturbative analysis"
+role = "core_branch"
+weight = 0.85
+phrases = [
+  "influence functions",
+  "data attribution",
+  "training-data attribution",
+  "leave-one-out influence",
+  "infinitesimal jackknife",
+  "Hessian inverse approximation",
+  "representer point",
+  "datamodel",
+  "example importance",
+  "data valuation",
+  "perturbation theory neural networks",
+  "linear response learning",
+  "susceptibility neural network",
+  "cavity method data influence",
+  "parameter response",
+  "model response to perturbations",
+  "unlearning",
+  "machine unlearning",
+]
+
+[[monthly_focus]]
+month = "2026-09"
+name = "Replica, cavity, associative memory, and higher-order learning"
+expires_after = "2026-09-30"
+weight = 1.50
+description = "Prioritize replica/cavity/perturbation theory in statistical mechanics of learning, associative-memory variants, and higher-order or many-body interactions in learning models."
+style_references = ["Dmitry Krotov"]
+cluster_boosts = { statistical_physics_of_learning = 1.45, theoretical_neuroscience_memory = 1.40, data_attribution_perturbative_analysis = 1.30, transformers_memory_reasoning = 1.20 }
+phrases = [
+  "replica method",
+  "replica calculation",
+  "zero-temperature replica",
+  "replica symmetry breaking",
+  "cavity method",
+  "TAP equations",
+  "dynamical mean-field theory",
+  "DMFT",
+  "perturbation theory of learning",
+  "linear response learning",
+  "susceptibility of learning systems",
+  "associative memory",
+  "dense associative memory",
+  "modern Hopfield network",
+  "Hopfield capacity",
+  "storage capacity",
+  "gated associative memory",
+  "hierarchical associative memory",
+  "p-spin learning model",
+  "higher-order neural interactions",
+  "higher-order interactions in learning",
+  "many-body learning model",
+  "many-body interactions in neural networks",
+  "collective learning dynamics",
+]
+
+# M = Read first, P = Less urgent, N = omit. These examples are prompt/eval
+# anchors; they are stronger evidence than superficial title or category hits.
+
+[[calibration]]
+arxiv_id = "2609.04006"
+title = "Quenched complexity of marginal states in the Sherrington--Kirkpatrick spin glass"
+label = "M"
+reason = "Quenched SK complexity and replica-symmetry breaking directly match the permanent center and September focus."
+signals = ["quenched complexity", "spin glass", "replica symmetry breaking", "Parisi equilibrium"]
+
+[[calibration]]
+arxiv_id = "2609.03111"
+title = "Large deviations for linear regressions"
+label = "M"
+reason = "The generic title hides a zero-temperature replica calculation for a learning problem; substantive method evidence must override title impressions."
+signals = ["linear regression", "zero-temperature replica method", "large deviations", "teacher coefficients"]
+
+[[calibration]]
+arxiv_id = "2602.06065"
+title = "Deep networks learn to parse uniform-depth context-free languages from local statistics"
+label = "M"
+reason = "A substantive theoretical result about what deep networks learn belongs in the high-priority learning-theory branch."
+signals = ["deep-network theory", "representation learning", "context-free languages", "local statistics"]
+
+[[calibration]]
+arxiv_id = "2609.03618"
+title = "Spectral properties of deterministic matrices multiplied by rotationally invariant random non-Hermitian ensembles"
+label = "P"
+reason = "Technically strong random-matrix work is adjacent, but it lacks a direct connection to current learning or many-body questions."
+signals = ["random matrices", "non-Hermitian spectra", "rotational invariance"]
+
+[[calibration]]
+arxiv_id = "2609.03193"
+title = "Generative Nested Sampling of Atomistic Thermodynamic Landscapes"
+label = "M"
+reason = "It combines a useful sampling method, a thermodynamics application, and a concrete machine-learning-to-physics bridge."
+signals = ["nested sampling", "normalizing flow", "atomistic thermodynamics", "free-energy landscape"]
+
+[[calibration]]
+arxiv_id = "2512.13859"
+title = "Neuromodulation-inspired gated associative memory networks: extended memory retrieval and emergent multistability"
+label = "M"
+reason = "Despite the biological title, the paper uses many-body simulations, DMFT, spin-glass transitions, and Hopfield capacity, making it a direct monthly-focus match."
+signals = ["associative memory", "many-body simulations", "dynamical mean-field theory", "spin-glass transition", "Hopfield capacity"]
+
+[[calibration]]
+arxiv_id = "2608.20404"
+title = "Data Driven Equation Discovery for Phase-Ordering Dynamics: From Allen Cahn to the Ising Model"
+label = "P"
+reason = "Scientific ML applied to phase ordering is useful, but it is less central than learning theory or transferable statistical-mechanics methods."
+signals = ["equation discovery", "phase-ordering dynamics", "Allen-Cahn", "Ising model"]
+
+[[calibration]]
+arxiv_id = "2602.08216"
+title = "Entropy-Generated Attention Beyond Softmax and Entmax: Kaniadakis and Reciprocal-Symmetric Abe Operators"
+label = "P"
+reason = "The generalized-entropy and Fisher-geometry construction is genuinely physics-inspired, but it studies fixed-score normalization rather than learning dynamics, collective behavior, or many-body effects."
+signals = ["generalized entropy", "Fisher geometry", "attention normalization"]
